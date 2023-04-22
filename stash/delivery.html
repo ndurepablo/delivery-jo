@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DatePicker</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+        $("#datepicker").datepicker({
+          beforeShowDay: function(date) {
+            var today = new Date();
+            var day = date.getDay();
+            var nextDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+            var threeDaysLater = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10);
+            if (date.getTime() == nextDay.getTime()) { // si es el día siguiente, inhabilitarlo
+              return [false];
+            }
+            return [(date >= nextDay) && (date <= threeDaysLater) && (day == 1 || day == 3 || day == 5)];
+          }
+        });
+      });
+  </script>
+</head>
+<body>
+  <input type="text" id="datepicker">
+</body>
+</html>
