@@ -1,12 +1,14 @@
 export const createSelectHTML = (options) => {
     return `
+    <div class="col-md-8 pb-3 mb-2">
       <label for="barrios-select">Selecciona tu barrio:</label>
-      <select id="barrios-select" name="barrios-select">
+      <select class="form-control" id="barrios-select" name="barrios-select">
         <option value="" disabled selected>Selecciona una opción</option>
         ${options
           .map((option) => `<option value="${option}">${option}</option>`)
           .join("")}
       </select>
+    </div>
     `;
   };
 
@@ -41,7 +43,7 @@ export const initializeDatePicker = (elementId, calculateDisabledDate, rangeDays
             return [date >= nextDay && date <= disabledUntil && days.includes(day)];
           }
         }
-      )
+      ).addClass("col-md-4 mb-2"); // Agrega la clase "my-class" al elemento generado
     }
   )
 }

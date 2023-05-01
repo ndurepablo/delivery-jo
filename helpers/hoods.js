@@ -3,9 +3,9 @@ export const capitalHoods = {
         "name": "Palermo",
         "id": "datepicker-palermo",
         "calculateDisabledDate": 1,
-        "rangeDays": 5,
-        "days": [1, 3, 5],
-        "shippingCost": 800,
+        "rangeDays": 10,
+        "days": [0, 4, 5],
+        "shippingCost": 900,
         "freeShippingThreshold": 4000
     },
     2 : {

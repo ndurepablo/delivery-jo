@@ -9,13 +9,8 @@ const capitalRadio = document.getElementById("capital");
 const countryRadio = document.getElementById("country");
 const barriosSelect = document.getElementById("#barrios-select");
 const deliveryCostDiv = document.getElementById("delivery-cost");
+const input = document.getElementById("order-cost-value");
 
-
-let orderCost = 5000;
-const orderCostDiv = document.getElementById("order-cost");
-const costNode = document.createElement("span");
-costNode.textContent = orderCost;
-orderCostDiv.appendChild(costNode);
 
 const handleChange = (e) => {
     let options = [];
@@ -54,14 +49,23 @@ const handleChange = (e) => {
                             const days = selectedHood.days;
                             const shippingCost = selectedHood.shippingCost;
                             const freeShippingThreshold = selectedHood.freeShippingThreshold;
-                            const calculateShippingCost = orderCost > freeShippingThreshold ? 0 : shippingCost;
+                            let orderCost = input.value;
+                            let calculateShippingCost = orderCost > freeShippingThreshold ? 0 : shippingCost;
 
+                            // Calcula el costo de envio con el costo que viene en la sesion
                             const deliveryCostNode = document.createElement("span");
                             const msgCostNode = document.createElement("span");
                             msgCostNode.textContent = "Costo de envío: ";
                             deliveryCostNode.textContent = calculateShippingCost;
                             deliveryCostDiv.appendChild(msgCostNode);
                             deliveryCostDiv.appendChild(deliveryCostNode);
+
+                            // Si el costo cambia, actualiza el costo de envio
+                            input.addEventListener("input", () => {
+                                let orderCost = input.value;
+                                let calculateShippingCost = orderCost > freeShippingThreshold ? 0 : shippingCost;
+                                deliveryCostNode.textContent = calculateShippingCost;
+                              });
 
 
                             initializeDatePicker(datepickerInput, calculateDisabledDate, rangeDays, days);

@@ -14,40 +14,56 @@
 </head>
 
 <body>
-  <h2 id="delivery-tittle">Zonas de entrega</h2>
-  <h4>Envíos en Buenos Aires</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 id="delivery-tittle">Zonas de entrega</h2>
+      <h4>Envíos en Buenos Aires</h4>
 
-  <h5>Costo orden de compra:</h4>
-  <div id="order-cost"></div>
+      
+      <h5>Costo orden de compra:</h5>
+      <div id="order-cost">
+        <input id="order-cost-value" type="text">
+      </div>
 
-  <h5 id="delivery-select">Seleccioná:</h4>
-  <form id="delivery">
-    <input type="radio" id="capital" name="location" value="Capital Federal y GBA">
-    <label for="capital">Domicilio en Capital Federal y GBA</label>
+      <h5 id="delivery-select">Seleccioná:</h5>
+      <form id="delivery">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="capital" name="location" value="Capital Federal y GBA">
+          <label class="form-check-label" for="capital">Domicilio en Capital Federal y GBA</label>
+        </div>
 
-    <input type="radio" id="country" name="location" value="Barrio privado / Country">
-    <label for="country">Barrio privado / Country</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="country" name="location" value="Barrio privado / Country">
+          <label class="form-check-label" for="country">Barrio privado / Country</label>
+        </div>
 
-    <br><br>
+        <br>
 
-    <label for="select-location">Selecciona tu ubicación:</label>
-    <select id="select-location" name="select-location">
-      <option value="" disabled selected>Elige una opción</option>
-    </select>
+        <div class="form-group">
+          <label for="select-location">Selecciona tu ubicación:</label>
+          <select class="form-control" id="select-location" name="select-location">
+            <option value="" disabled selected>Elige una opción</option>
+          </select>
+        </div>
 
-    <br><br>
+        <br>
 
-    <div id="barrios-select-container">
-      <div id="barrios-container"></div>
-      <div id="date-picker-container"></div>
+        <div id="barrios-select-container">
+          <div id="barrios-container"></div>
+          <div id="date-picker-container"></div>
+        </div>
+      </form>
+      <div id="delivery-cost"></div>
+      <h5>Envíos al interior del país</h5>
+      <p>
+        Si vivís en el interior, podemos enviarte únicamente productos de almacén.
+        El día, horario y costo de entrega dependerá del transporte que elijas.
+      </p>
     </div>
-  </form>
-  <div id="delivery-cost"></div>
-  <h5>Envíos al interior del país</h3>
-  <p>
-    Si vivís en el interior, podemos enviarte únicamente productos de almacén.
-    El día, horario y costo de entrega dependerá del transporte que elijas.
-  </p>
+  </div>
+</div>
+
 
 
   <script type="module" src="./main.js"></script>
