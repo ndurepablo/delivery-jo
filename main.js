@@ -76,6 +76,7 @@ const handleChange = (e) => {
                     });
                 }
             }
+            // Queda trabajar la logica como está hecho en Capital Federal en todo el resto de lugares
             else if (selectedOption == "Zona sur"){
                 removeElementInnerId("#date-picker-container");
                 removeElementInnerId("#delivery-cost");
