@@ -10,6 +10,8 @@ const countryRadio = document.getElementById("country");
 const barriosSelect = document.getElementById("#barrios-select");
 const deliveryCostDiv = document.getElementById("delivery-cost");
 const input = document.getElementById("order-cost-value");
+let subTotalElement = document.querySelector("#order_review > table > tfoot > tr.cart-subtotal > td > span");
+
 
 
 const handleChange = (e) => {
@@ -54,6 +56,7 @@ const handleChange = (e) => {
 
                             // Calcula el costo de envio con el costo que viene en la sesion
                             const deliveryCostNode = document.createElement("span");
+                            deliveryCostNode.id = 'deliveryCostNode'
                             const msgCostNode = document.createElement("span");
                             msgCostNode.textContent = "Costo de envío: ";
                             deliveryCostNode.textContent = calculateShippingCost;
@@ -62,7 +65,7 @@ const handleChange = (e) => {
 
                             // Si el costo cambia, actualiza el costo de envio
                             input.addEventListener("input", () => {
-                                let orderCost = input.value;
+                                let orderCost = parseFloat(input.value);
                                 let calculateShippingCost = orderCost > freeShippingThreshold ? 0 : shippingCost;
                                 deliveryCostNode.textContent = calculateShippingCost;
                               });
@@ -133,6 +136,4 @@ const handleChange = (e) => {
 
 capitalRadio.addEventListener("change", handleChange);
 countryRadio.addEventListener("change", handleChange);
-
-
 
